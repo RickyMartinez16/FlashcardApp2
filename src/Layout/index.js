@@ -5,6 +5,8 @@ import NotFound from "./NotFound";
 import Home from "../Components/Home";
 import CreateDeck from "../Components/CreateDeck";
 import Deck from "../Components/Deck";
+import Study from "../Components/Study";
+import AddCard from "../Components/AddCard";
 
 function Layout() {
   return (
@@ -21,6 +23,12 @@ function Layout() {
           </Route>
           <Route path="/decks/:decksId">
             <Deck />
+          </Route >
+          <Route path="/decks/:deckId/study">
+            <Study />
+          </Route>
+          <Route path="/decks/:deckId/cards/new">
+            <AddCard />
           </Route>
           <NotFound />
         </Switch>
