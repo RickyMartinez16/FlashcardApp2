@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {Link, useHistory} from "react-router-dom"
-import { createDeck } from "../utils/api";
+import {Link, useHistory} from "react-router-dom";
+import { createDeck } from "../../utils/api";
 
 function CreateDeck(){
     const history = useHistory();
@@ -8,29 +8,20 @@ function CreateDeck(){
         name: "",
         description: ""
     };
-    const [newDeck, setNewDeck] = useState(initialState);
+    const [newDeck, setNewDeck] = useState({...initialState});
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const abortController = new AbortController();
-        const response = await createDeck(
-            {...newDeck},
-            abortController.signal
-        );
-        history.push("/");
-        return response;
+        const response = await createDeck(newDeck);
+        history.push(`/decks/${response.id}`)
     }
+    const handleChange = (event) => {
+        setNewDeck({...newDeck, [event.target.name]: event.target.value});
+    };
 
-    function handleChange({target}) {
-        setNewDeck({
-            ...newDeck,
-            [target.name]: target.value,
-        });
-    }
-
-    function handleCancel(){
-        history.push("/")
-    }
+    // function handleCancel(){
+    //     history.push("/")
+    // }
 
     //ui
 
@@ -69,12 +60,7 @@ function CreateDeck(){
                         value={newDeck.description}
                     />
                 </div>
-                <button
-                    className="btn btn-secondary mx-1"
-                    onClick={() => handleCancel()}
-                >
-                    Cancel
-                </button>
+                <Link to="/">Cancel</Link>
                 <button
                     className="btn btn-primary mx-1"
                     type="submit"
