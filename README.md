@@ -23,3 +23,8 @@
 - Flip: view the back of the card
 - Next: view the next card
 - Previous: view the previous card
+
+
+### Technology
+- Built using Bootstrap and React to design and manage the user-interface, respectively
+- Implemented React Hooks and React Router to manage API calls for data and component routing, respectively
