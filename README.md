@@ -12,3 +12,8 @@
 - Study: enter study mode
 - Add Cards: add individual cards to a selected deck
 - Delete: Delete deck
+
+
+### Cards
+- Edit: Edit card front and back
+- Delete: Delete card
