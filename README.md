@@ -17,3 +17,9 @@
 ### Cards
 - Edit: Edit card front and back
 - Delete: Delete card
+
+
+### Study
+- Flip: view the back of the card
+- Next: view the next card
+- Previous: view the previous card
